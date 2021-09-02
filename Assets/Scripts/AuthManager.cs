@@ -98,8 +98,7 @@ public class AuthManager : MonoBehaviour
         {
             //User is now logged in
             //Now get the result
-            var user = LoginTask.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
+            PlayerPrefs.SetInt("isLoggedIn", 1);
             warningLoginText.text = "";
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -147,6 +146,7 @@ public class AuthManager : MonoBehaviour
             }
             else
             {
+                PlayerPrefs.SetInt("isLoggedIn", 1);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
